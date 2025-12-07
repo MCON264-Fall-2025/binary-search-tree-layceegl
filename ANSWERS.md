@@ -1,0 +1,4 @@
+1. inorder goes "in order" because of the direction that it goes - first left, then the middle, then the right. becasue when sorted that is the order that the data will be placed, the results will be in sorted order
+2. if you feed it a list thats already sorted going up (1, 2, 3, 4, 5) then it will sort going the same direction the entire time, and as such it will look "unbalanced". th einorder traversal will still be in that order - 1, 2, 3, 4, 5
+3. recrusive is faster and easier but it can result in stack overflows. iterative is longer but there are no overflows. breadth first means it goes top to bottom or bottom to top, but either way it does one "level" at a time. depth first starts from the top and goes down all the way one direction. when it hits the bottom it goes back up and follows the next line all the way down.
+4. breadth first is usually better because it can compare everything thats on the same level easily.
