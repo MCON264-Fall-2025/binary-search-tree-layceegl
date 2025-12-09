@@ -1,0 +1,86 @@
+{
+  "tests": [
+    {
+      "name": "Inorder Recursive Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testInorderRecursiveSortedOrder",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Preorder Recursive Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testPreorderRecursive",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Postorder Recursive Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testPostorderRecursive",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Level Order Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testLevelOrder",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Get By Traversal Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testGetByTraversal",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 15
+    },
+    {
+      "name": "Iterative Preorder Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testIterativePreorderMatchesRecursive",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 15
+    },
+    {
+      "name": "Iterative Inorder Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testIterativeInorderMatchesRecursive",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 15
+    },
+    {
+      "name": "Level Order Using Queue Test",
+      "setup": "",
+      "run": "mvn test -Dtest=BinarySearchTreeTraversalTest#testLevelOrderUsingQueueMatchesLevelOrder",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 15
+    }
+  ]
+}
+
+

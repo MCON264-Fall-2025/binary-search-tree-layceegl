@@ -1,0 +1,107 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Inorder Recursive Test
+      id: inorder-recursive-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Inorder Recursive Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testInorderRecursiveSortedOrder
+        timeout: 10
+        max-score: 10
+    - name: Preorder Recursive Test
+      id: preorder-recursive-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Preorder Recursive Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testPreorderRecursive
+        timeout: 10
+        max-score: 10
+    - name: Postorder Recursive Test
+      id: postorder-recursive-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Postorder Recursive Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testPostorderRecursive
+        timeout: 10
+        max-score: 10
+    - name: Level Order Test
+      id: level-order-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Level Order Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testLevelOrder
+        timeout: 10
+        max-score: 10
+    - name: Get By Traversal Test
+      id: get-by-traversal-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Get By Traversal Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testGetByTraversal
+        timeout: 10
+        max-score: 15
+    - name: Iterative Preorder Test
+      id: iterative-preorder-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Iterative Preorder Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testIterativePreorderMatchesRecursive
+        timeout: 10
+        max-score: 15
+    - name: Iterative Inorder Test
+      id: iterative-inorder-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Iterative Inorder Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testIterativeInorderMatchesRecursive
+        timeout: 10
+        max-score: 15
+    - name: Level Order Using Queue Test
+      id: level-order-using-queue-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Level Order Using Queue Test
+        setup-command: ''
+        command: mvn test -Dtest=BinarySearchTreeTraversalTest#testLevelOrderUsingQueueMatchesLevelOrder
+        timeout: 10
+        max-score: 15
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        INORDER-RECURSIVE-TEST_RESULTS: "${{steps.inorder-recursive-test.outputs.result}}"
+        PREORDER-RECURSIVE-TEST_RESULTS: "${{steps.preorder-recursive-test.outputs.result}}"
+        POSTORDER-RECURSIVE-TEST_RESULTS: "${{steps.postorder-recursive-test.outputs.result}}"
+        LEVEL-ORDER-TEST_RESULTS: "${{steps.level-order-test.outputs.result}}"
+        GET-BY-TRAVERSAL-TEST_RESULTS: "${{steps.get-by-traversal-test.outputs.result}}"
+        ITERATIVE-PREORDER-TEST_RESULTS: "${{steps.iterative-preorder-test.outputs.result}}"
+        ITERATIVE-INORDER-TEST_RESULTS: "${{steps.iterative-inorder-test.outputs.result}}"
+        LEVEL-ORDER-USING-QUEUE-TEST_RESULTS: "${{steps.level-order-using-queue-test.outputs.result}}"
+      with:
+        runners: inorder-recursive-test,preorder-recursive-test,postorder-recursive-test,level-order-test,get-by-traversal-test,iterative-preorder-test,iterative-inorder-test,level-order-using-queue-test
+
